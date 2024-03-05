@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +25,10 @@ function App() {
       [1, 4, 7],
       [2, 5, 8],
       [3, 6, null],
+    ],[
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, null, 8],
     ],
   ];
   const [shuffledValue, setShuffledValue] = useState([]);
@@ -54,7 +58,7 @@ function App() {
     }
   };
   const generateRandom = () => {
-    const randomIndexGenerated = Math.floor(Math.random() * 4);
+    const randomIndexGenerated = Math.floor(Math.random() * 5);
     setShuffledValue(shuffleValue[randomIndexGenerated]);
   };
   useEffect(() => {
@@ -84,7 +88,7 @@ function App() {
                     {item.map((val, ind) => (
                       <td
                         key={ind}
-                        className={val !== null ? 'tdValue' : 'tdNull'}
+                        className="tdValue"
                         onClick={() => {
                           if (isValidMove(index, ind)) {
                             setChances((prev) => (prev !== 0 ? prev - 1 : 0));
@@ -99,8 +103,8 @@ function App() {
               })}
             </tbody>
           </table>
-          <h2>{chances === 0 && !win ? 'Try Again' : null}</h2>
-          <h2>{win ? 'Puzzle Solved' : null}</h2>
+          <h2>{chances === 0 && !win ? "Try Again" : null}</h2>
+          <h2>{win ? "Puzzle Solved" : null}</h2>
           <h2>Remaining Chances : {chances}</h2>
           <button
             onClick={() => {
@@ -117,5 +121,3 @@ function App() {
 }
 
 export default App;
-
-
